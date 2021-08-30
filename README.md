@@ -62,3 +62,53 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+Home  »  Laravel   »   How to Create Laravel 8 Vue JS CRUD Single Page Application (SPA)
+How to Create Laravel 8 Vue JS CRUD Single Page Application (SPA)
+Last updated on: August 7, 2021 by Editorial Team
+
+
+Throughout this Laravel Vue js CRUD example tutorial, you will see and understand how to build Create, Read, Update, and Delete API and how to consume APIs to perform CRUD operations in Laravel Vue JS application.
+
+In computer science, create, read, update, and delete are not just mere words. They are the foundational building block of every application for creating, reading, updating, and deleting the data. The terminology might be different sometimes, for instance, retrieval rather than read, modify somewhat of the update, or destroy alternately of delete.
+
+Nevertheless, in this laravel vue js crud tutorial, we will help you ascertain how to integrate the laravel vue js CRUD operations in a single page application with vue js components and laravel app.
+
+<h1>Laravel 8 Vue JS CRUD Example</h1>
+<ul><li>Create a Laravel Project</li><li>Enable database connection</li><li>Create a model and run migration</li><li>Create and configure the controller</li><li>Add routes</li><li>Install Laravel Vue UI</li><li>Install NPM dependencies</li><li>Build Vue Js CRUD Components</li><li>Test Laravel Vue JS CRUD operations</li></ul>
+
+<h2>In Windows:</h2>
+
+<p>copy .env.example .env</p>
+
+<h2>In Linux/Mac:</h2>
+
+<p>cp .env.example .env</p>
+
+<h2>Database Connection</br>
+This step explains how to make database connection by adding database name, username and password in .env config file of your project:</h2>
+<p>
+DB_CONNECTION=mysql</br>
+DB_HOST=127.0.0.1</br>
+DB_PORT=3306</br>
+DB_DATABASE=db</br>
+DB_USERNAME=root</br>
+DB_PASSWORD=</br>
+</p>
+
+<h2>Next, you need to evoke migration with below command: </h2>
+<p>php artisan migrate</p>
+
+<h2>npm install</h2>
+
+<h2>
+The npm run watch command compiles the assets, not just that with run watch command you don’t fret about re-run the compiler over and over again.</h2>
+
+<p>npm run watch</p>
+
+<p>php artisan serve</p>
+
+<h2>Open the URL in the browser: </h2>
+
+<p>http://127.0.0.1:8000</p>
