@@ -36,10 +36,7 @@
  
 <script>
     export default {
-        // mounted() {
-        //     console.log('Shohag.')
-        // },
-        data() {
+         data() {
             return {
                 
                   products: [],
@@ -48,28 +45,16 @@
         },
         methods: {
 
+             productId() {
+                console.log("shohag");             
+               this.axios
+                .get('http://localhost:8000/api/productId/')
+                .then(response => {                     
+                    this.products = response.data;
+                });         
+            },
+        
 
-             productId: function(){
-                 console.log("shohag");
-                axios.get('http://localhost:8000/api/productId')
-                    .then(function (response) {
-                        this.products = response.data;
-                    }.bind(this));
-            }
-
-          
-            
-            //  productId() {
-
-            //     console.log("shohag");             
-            //    this.axios
-            //     .get('http://localhost:8000/api/productId/')
-            //     .then(response => {                     
-            //         this.products = response.data;
-            //     });
-         
-            // },
-        },
             addQuantitie() {
                // console.log("shohag"); 
                 this.axios
@@ -80,6 +65,10 @@
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
             }
+        },
+          created() {
+            this.productId();
+        },
         
     }
 

@@ -2053,9 +2053,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  // mounted() {
-  //     console.log('Shohag.')
-  // },
   data: function data() {
     return {
       products: [],
@@ -2064,33 +2061,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     productId: function productId() {
+      var _this = this;
+
       console.log("shohag");
-      axios.get('http://localhost:8000/api/productId').then(function (response) {
-        this.products = response.data;
-      }.bind(this));
-    } //  productId() {
-    //     console.log("shohag");             
-    //    this.axios
-    //     .get('http://localhost:8000/api/productId/')
-    //     .then(response => {                     
-    //         this.products = response.data;
-    //     });
-    // },
-
-  },
-  addQuantitie: function addQuantitie() {
-    var _this = this;
-
-    // console.log("shohag"); 
-    this.axios.post('http://localhost:8000/api/quantityprices', this.quantityprice).then(function (response) {
-      return _this.$router.push({
-        name: 'home'
+      this.axios.get('http://localhost:8000/api/productId/').then(function (response) {
+        _this.products = response.data;
       });
-    })["catch"](function (err) {
-      return console.log(err);
-    })["finally"](function () {
-      return _this.loading = false;
-    });
+    },
+    addQuantitie: function addQuantitie() {
+      var _this2 = this;
+
+      // console.log("shohag"); 
+      this.axios.post('http://localhost:8000/api/quantityprices', this.quantityprice).then(function (response) {
+        return _this2.$router.push({
+          name: 'home'
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      })["finally"](function () {
+        return _this2.loading = false;
+      });
+    }
+  },
+  created: function created() {
+    this.productId();
   }
 });
 
