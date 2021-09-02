@@ -5,6 +5,7 @@
                 <div class="navbar-nav">
                     <router-link to="/" class="nav-item nav-link">Products List</router-link>
                     <router-link to="/create" class="nav-item nav-link">Create Product</router-link>
+                     <router-link to="/quantity" class="nav-item nav-link">Input quantity</router-link>
                 </div>
             </div>
         </nav>

@@ -9,8 +9,16 @@
                         <input type="text" class="form-control" v-model="product.name">
                     </div>
                     <div class="form-group">
+                        <label>Code Name</label>
+                        <input type="text" class="form-control" v-model="product.codename">
+                    </div>
+                    <div class="form-group">
                         <label>Detail</label>
                         <input type="text" class="form-control" v-model="product.detail">
+                    </div>
+                    <div class="form-group">
+                        <label>Other Info</label>
+                        <input type="text" class="form-control" v-model="product.optionnal">
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
