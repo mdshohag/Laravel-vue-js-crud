@@ -5,14 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Quantityprice;
 use App\Models\Product;
-
+use DB;
 class QuantityController extends Controller
 {
     
     public function index()
     {
-        $quantityprices = Quantityprice::all()->toArray();
-        return array_reverse($quantityprices); 
+
+        $quantityprices = DB::table('quantityprices')
+        ->join('products', 'quantityprices.product_id', '=' ,'products.id')
+        ->select('quantityprices.*', 'products.name')->get()->toArray();
+
+        return array_reverse($quantityprices);
+      //  return response()->json(['quantityprices' => $quantityprices]);
+
+        
+        //  $quantityprices = Quantityprice::all()->toArray();
+        // return array_reverse($quantityprices); 
+
+        // $quantitypricess   = DB::table('quantityprices')
+        // ->join('products', 'quantityprices.product_id', '=', 'products.id')
+        // ->select('quantityprices.*', 'products.name')
+        // ->get();
+        // return ['quantityprices'=>$quantitypricess];
+       //  return array_reverse($quantityprices); 
+         
     }
 
      
@@ -65,10 +82,10 @@ class QuantityController extends Controller
         //
     }
 
-    public function productId(){
+    // public function productId(){
         
-        $data = Product::get();
+    //     $data = Product::get();
         
-        return response()->json($data);
-    }
+    //     return response()->json($data);
+    // }
 }

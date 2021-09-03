@@ -17,7 +17,7 @@ class CreateQuantitypricesTable extends Migration
             $table->id();
             $table->string('product_id');
             $table->decimal('quantity');
-            $table->decimal('amount', 5, 2);
+            $table->decimal('amount');
             $table->text('detail');  
             $table->timestamps();
         });

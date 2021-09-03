@@ -7,13 +7,10 @@
 
                     <div class="form-group">
                          <label>Name</label>
-                        <select class="form-select" v-model="quantityprice.product_id">
-                            <option selected>Open this select menu</option>
-
-                            <option  v-for='data in products' :value='data.id'>{{ data.id }} </option>
-
-                        </select>
-                      
+                        <select class="form-control" v-model="quantityprice.product_id">
+                            <option selected>Select menu</option>
+                            <option  v-for='data in products' :value="data.id" :key="data.id">{{ data.name }} </option>
+                        </select>                      
                     </div>
                       <div class="form-group">
                         <label>Quantity</label>
@@ -43,31 +40,27 @@
                 quantityprice: {}
             }
         },
-        methods: {
-
-             productId() {
-                console.log("shohag");             
+         mounted() {
+                //console.log("shohag");             
                this.axios
-                .get('http://localhost:8000/api/productId/')
+                .get('http://localhost:8000/api/products/')
                 .then(response => {                     
                     this.products = response.data;
                 });         
-            },
-        
+            
+        },
+        methods: {
 
             addQuantitie() {
                // console.log("shohag"); 
                 this.axios
                     .post('http://localhost:8000/api/quantityprices', this.quantityprice)
                     .then(response => (
-                        this.$router.push({ name: 'home' })
+                        this.$router.push({ name: 'allquantity' })
                     ))
                     .catch(err => console.log(err))
                     .finally(() => this.loading = false)
             }
-        },
-          created() {
-            this.productId();
         },
         
     }
