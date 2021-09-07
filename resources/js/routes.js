@@ -3,6 +3,7 @@ import CreateProduct from './components/CreateProduct.vue';
 import EditProduct from './components/EditProduct.vue';
 import Createquantity from './components/Createquantity.vue';
 import AllQuantity from './components/AllQuantity.vue';
+import Editquantity from './components/Editquantity.vue';
  
 export const routes = [
     {
@@ -29,5 +30,10 @@ export const routes = [
         name: 'quantity',
         path: '/quantity',
         component: Createquantity
+    },
+    {
+        name: 'editquantity',
+        path: '/editquantity/:id',
+        component: Editquantity
     }
 ];

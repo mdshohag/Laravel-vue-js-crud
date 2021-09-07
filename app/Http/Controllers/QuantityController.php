@@ -49,26 +49,31 @@ class QuantityController extends Controller
     }
 
     
-    public function show(Quantity $quantity)
+    // public function show(Quantity $quantity)
+    // {
+    //     //
+    // }
+    public function show($id)
     {
-        //
+        // $Quantityprice      =Quantityprice::all();
+
+        // $quantitys = DB::table('quantityprices')
+        // ->join('products', 'quantityprices.product_id', '=' ,'products.id')
+        // ->select('quantityprices.*', 'products.name')
+        // ->where('quantityprices.id', $id)->get();
+         $quantity = Quantityprice::find($id);
+       // return $quantity;
+        return response()->json($quantity);
+      
     }
 
-    public function edit(Quantity $quantity)
+   
+    public function update($id, Request $request)
     {
-        //
-    }
+        $quantity = Quantityprice::find($id);
+        $quantity->update($request->all());
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Quantity  $quantity
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Quantity $quantity)
-    {
-        //
+        return response()->json('Quantity Price updated!');
     }
 
     /**
@@ -77,9 +82,12 @@ class QuantityController extends Controller
      * @param  \App\Models\Quantity  $quantity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Quantity $quantity)
+    public function destroy($id)
     {
-        //
+        $quantity = Quantityprice::find($id);
+        $quantity->delete();
+
+        return response()->json('Quantity price deleted!');
     }
 
     // public function productId(){

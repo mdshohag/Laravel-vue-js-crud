@@ -22,7 +22,7 @@
                  <td>{{ quantityprice.detail }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'edit', params: { id: quantityprice.id }}" class="btn btn-success">Edit</router-link>
+                        <router-link :to="{name: 'editquantity', params: { id: quantityprice.id }}" class="btn btn-success">Edit</router-link>
                         <button class="btn btn-danger" @click="deletequantityprice(quantityprice.id)">Delete</button>
                     </div>
                 </td>
@@ -50,15 +50,15 @@
                      console.log( response.data);
                 });
         },
-        // methods: {
-        //     deleteProduct(id) { 
-        //         this.axios
-        //             .delete(`http://localhost:8000/api/products/${id}`)
-        //             .then(response => {
-        //                 let i = this.products.map(data => data.id).indexOf(id);
-        //                 this.products.splice(i, 1)
-        //             });
-        //     }
-        // }
+        methods: {
+            deletequantityprice(id) { 
+                this.axios
+                    .delete(`http://localhost:8000/api/quantityprices/${id}`)
+                    .then(response => {
+                        let i = this.quantityprices.map(data => data.id).indexOf(id);
+                        this.quantityprices.splice(i, 1)
+                    });
+            }
+        }
     }
 </script>
